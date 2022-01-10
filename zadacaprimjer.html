@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osnovni podaci o meni</title>
+</head>
+<body style="background-color:lightblue">
+    <h1 id="name" >Ime: </h1>
+    <p id="birthYear" style="color:darkblue; text-align:left">Rodjena: </p>
+    <p id="height" style="color:red; text-align:left">Visina: </p>
+    <p id="weight" style="color:darkblue; text-align:left">Tezina: </p>
+    <p id="age" style="color:red; text-align:left">Godina: </p>
+    <p id="bmi" style="color:darkblue; text-align:left">BMI indeks: </p>
+    
+    <hr>
+    <button onclick="outputAge()">Godine</button>
+    <button onclick="outputBmi()">BMI</button>
+    <button onclick="resultClear()">Clear</button>
+    <hr>
+
+    <script>
+
+    let tekst_p_age = document.getElementById("age").innerHTML;
+    let tekst_p_bmi = document.getElementById("bmi").innerHTML;
+
+    function resultClear() {
+      document.getElementById("age").innerHTML = tekst_p_age;
+      document.getElementById("bmi").innerHTML = tekst_p_bmi;
+    }
+
+    const person = {
+      firstName: "Samra",
+      lastName: "Duran",
+      birthYear: 2000,
+      height: 172,
+      weight: 68,
+
+      age: function(){
+            return 2021 - this.birthYear;
+          },
+      bmi: function(){
+            return this.weight / (this.height/100)**2
+          }
+    };
+
+    document.getElementById("name").innerHTML += person.firstName + " " + person.lastName;
+    document.getElementById("birthYear").innerHTML += person.birthYear;
+    document.getElementById("height").innerHTML += person.height;
+    document.getElementById("weight").innerHTML += person.weight;
+
+
+    function outputAge(){
+      document.getElementById("age").innerHTML += person.age();
+    };
+
+    function outputBmi(){
+      document.getElementById("bmi").innerHTML += person.bmi();
+    };
+
+
+    </script>
+    
+</body>
+</html>
